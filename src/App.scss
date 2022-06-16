@@ -1,22 +1,36 @@
+@import "variable";
 /*
 common
 */
 p, h1 {
-  margin: 0; }
+  margin: 0;
+}
 
-body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; }
+body{
+  font-family: "Helvetica Neue",
+  Arial,
+  "Hiragino Kaku Gothic ProN",
+  "Hiragino Sans",
+  Meiryo,
+  sans-serif;
+}
+
 
 .App {
-  text-align: center; }
+  text-align: center;
+}
 
 .App-logo {
   height: 40vmin;
-  pointer-events: none; }
+  pointer-events: none;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear; } }
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
 /*
   Header
 */
@@ -28,30 +42,37 @@ header {
   color: #000000;
   padding: 0 50px;
   border-bottom: solid 1px #282c34;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 .header_lab {
   font-size: calc(8px + 2vmin);
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 /*header-menu*/
 .header_menu {
   display: flex;
-  align-items: flex-start; }
+  align-items: flex-start;
+}
 
 .header_item {
   color: #000000;
   text-decoration: none;
   font-size: calc(5px + 1.5vmin);
   font-weight: bold;
-  padding-right: 20px; }
+  padding-right: 20px;
+}
 
 .header_item:hover {
-  opacity: 0.4; }
+  opacity: 0.4;
+}
+
 
 /*
 main
 */
+
 /*
 top
 */
@@ -60,7 +81,8 @@ top
   width: 100vw;
   min-height: 85vh;
   display: flex;
-  align-items: center; }
+  align-items: center;
+}
 
 .top_content {
   width: 93vw;
@@ -71,7 +93,8 @@ top
   text-align: left;
   box-sizing: border-box;
   color: #ffffff;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 .top_content h1 {
   vertical-align: middle;
@@ -79,11 +102,13 @@ top
   border-bottom: solid 4px #ffffff;
   margin: 17vh 0 3vh;
   padding: 0 1vw 2vh;
-  display: inline-block; }
+  display: inline-block;
+}
 
 .top p {
   font-size: calc(15px + 2vmin);
-  padding-left: 20px; }
+  padding-left: 20px;
+}
 
 /*
 about
@@ -96,49 +121,62 @@ about
   flex-direction: column;
   padding: 5%;
   box-sizing: border-box;
-  text-align: left; }
+  text-align: left;
+}
 
 .about h2 {
-  font-size: clamp(8px, calc(8px + 3vmin), 45px);
-  font-weight: bold; }
+  @include ttlFont
+}
 
 .about p {
-  font-size: clamp(8px, calc(8px + 1.5vmin), 22px);
-  padding-bottom: 1vh; }
+  @include txtFont;
+  padding-bottom: 1vh;
+}
 
 /*
 ho-chan
 */
 .hochan {
   display: flex;
-  width: 100vw; }
-  .hochan_column {
+  width: 100vw;
+
+  &_column {
     width: 50vw;
     box-sizing: border-box;
-    padding: 2%; }
-    .hochan_column:first-child {
+    padding: 2%;
+
+    &:first-child {
       display: flex;
       justify-content: right;
-      padding-top: 40px; }
-      .hochan_column:first-child img {
-        height: 30vw;
-        padding-right: 5vw; }
-    .hochan_column:last-child {
-      text-align: left; }
-      .hochan_column:last-child h2 {
-        font-size: clamp(8px, calc(8px + 3vmin), 45px);
-        font-weight: bold;
-        font-weight: 300;
-        font-family: YuMincho; }
-      .hochan_column:last-child p {
-        font-size: calc(8px + 2vmin); }
-      .hochan_column:last-child ul {
-        padding-left: 10px;
-        font-size: clamp(8px, calc(8px + 1.5vmin), 22px); }
-      .hochan_column:last-child li {
-        list-style: none;
-        padding-top: 5px; }
+      padding-top: 40px;
 
+      img {
+        height: 30vw;
+        padding-right: 5vw;
+      }
+    }
+    &:last-child {
+      text-align: left;
+      h2 {
+        @include ttlFont;
+        font-weight: 300;
+        font-family: YuMincho;
+      }
+      p {
+        font-size: calc(8px + 2vmin);
+      }
+      ul {
+        padding-left: 10px;
+
+        @include txtFont;
+      }
+      li {
+        list-style: none;
+        padding-top: 5px;
+      }
+    }
+  }
+}
 .btn {
   background: #ffffff;
   border: 1px solid #5e5e5e;
@@ -149,15 +187,15 @@ ho-chan
   padding: 20px 40px;
   text-align: center;
   margin-top: 60px;
-  text-decoration: none; }
-  .btn.slide {
+  text-decoration: none;
+  &.slide {
     background: #fff;
     color: #474747;
     font-weight: bold;
     overflow: hidden;
     position: relative;
-    z-index: 1; }
-    .btn.slide::after {
+    z-index: 1;
+    &::after {
       background: #8185A8;
       position: absolute;
       top: 0;
@@ -167,12 +205,17 @@ ho-chan
       height: 100%;
       transform: scale(0, 1);
       transform-origin: left top;
-      transition: 0.2s cubic-bezier(0.45, 0, 0.55, 1);
-      z-index: -1; }
-    .btn.slide:hover {
-      color: #fff; }
-      .btn.slide:hover::after {
-        transform: scale(1, 1); }
+      transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
+      z-index: -1;
+    }
+    &:hover {
+      color: #fff;
+      &::after {
+        transform: scale(1, 1);
+      }
+    }
+  }
+}
 
 /*
 ToContact
@@ -181,21 +224,26 @@ ToContact
   display: flex;
   background-color: #FFA69E;
   padding: 2%;
-  margin: 50px 0; }
-  .contact_column {
+  margin: 50px 0;
+  &_column {
     width: 50vw;
     padding: 3%;
-    background-color: #ffffff; }
-    .contact_column img {
-      width: 40vw; }
-  .contact_description {
+    background-color: #ffffff;
+    img {
+      width: 40vw;
+    }
+  }
+  &_description {
     box-sizing: border-box;
     padding-top: 8%;
     padding-left: 8%;
-    text-align: left; }
-    .contact_description p {
-      font-size: clamp(8px, calc(8px + 3vmin), 45px);
-      font-weight: bold; }
+    text-align: left;
+    p {
+      @include ttlFont;
+    }
+  }
+}
+
 
 /*
 Footer
@@ -205,25 +253,29 @@ Footer
   box-sizing: border-box;
   background-color: #8185A8;
   text-align: left;
-  color: #ffffff; }
-  .footer_lab {
+  color: #ffffff;
+  &_lab {
     font-size: calc(5px + 3vmin);
-    font-weight: bold; }
-  .footer_menu {
+    font-weight: bold;
+  }
+  &_menu {
     display: flex;
     align-items: flex-start;
-    margin-top: 20px; }
-  .footer_item {
+    margin-top: 20px;
+  }
+  &_item {
     color: #ffffff;
     text-decoration: none;
     font-size: calc(5px + 1.7vmin);
-    padding-right: 20px; }
-    .footer_item:hover {
+    padding-right: 20px;
+    &:hover {
       opacity: 0.4;
-      text-decoration: underline; }
+      text-decoration: underline;
+    }
+  }
+}
 
 .privilage {
   padding-top: 20px;
-  text-align: center; }
-
-/*# sourceMappingURL=App.css.map */
+  text-align: center;
+}

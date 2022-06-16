@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Main from "./pages/Main";
+import About from "./pages/About";
+import Hochan from "./pages/Hochan";
+import Contact from "./pages/Contact";
+import {normalize} from "@testing-library/jest-dom/dist/utils";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path={`/`} element={<Main/>}/>
+          <Route path={`/about/`} element={<About/>}/>
+          <Route path={`/hochan/`} element={<Hochan/>}/>
+          <Route path={`/contact/`} element={<Contact/>}/>
+        </Routes>
+      </BrowserRouter>
   );
 }
 
