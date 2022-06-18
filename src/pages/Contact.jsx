@@ -7,7 +7,7 @@ export default function Contact() {
         <div className="App">
             <Header/>
             <main>
-                <h1>Contact</h1>
+
             </main>
         </div>
     );

@@ -42,7 +42,7 @@ header {
 .header_item {
   color: #000000;
   text-decoration: none;
-  font-size: calc(5px + 1.5vmin);
+  font-size: calc(8px + 1vmin);
   font-weight: bold;
   padding-right: 20px; }
 
@@ -138,6 +138,10 @@ ho-chan
       .hochan_column:last-child li {
         list-style: none;
         padding-top: 5px; }
+      .hochan_column:last-child a {
+        text-decoration: none; }
+        .hochan_column:last-child a button {
+          width: 70vw; }
 
 .btn {
   background: #ffffff;
@@ -175,6 +179,62 @@ ho-chan
         transform: scale(1, 1); }
 
 /*
+Information
+*/
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  background-color: #ffffff;
+  padding: 2% 0 3%;
+  margin: 50px 0; }
+  .info h2 {
+    font-size: clamp(8px, calc(8px + 2vmin), 30px); }
+
+.news-list {
+  list-style: none outside;
+  margin: 0;
+  padding: 0; }
+
+.news-list .item a {
+  display: flex;
+  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  text-decoration: none;
+  color: #171717;
+  border-bottom: 1px solid #CCC;
+  padding: 20px 20px; }
+
+.news-list .item:first-child a {
+  border-top: 1px solid #CCC; }
+
+.news-list .item .date {
+  margin: 0;
+  min-width: 120px;
+  font-size: 16px;
+  color: #252525;
+  padding: 0 20px 0 0;
+  line-height: 100%; }
+
+.news-list .item .title {
+  margin: 0;
+  width: 100%;
+  letter-spacing: 3px;
+  line-height: 100%;
+  text-align: left; }
+
+@media screen and (max-width: 767px) {
+  .news-list .item a {
+    flex-wrap: wrap; }
+
+  .news-list .item .date {
+    min-width: 100px; }
+
+  .news-list .item .title {
+    margin-top: 10px; } }
+/*
 ToContact
 */
 .contact {
@@ -196,6 +256,10 @@ ToContact
     .contact_description p {
       font-size: clamp(8px, calc(8px + 3vmin), 45px);
       font-weight: bold; }
+      .contact_description p:last-child {
+        font-size: clamp(6px, calc(6px + 1vmin), 18px);
+        font-weight: normal;
+        margin-top: 10px; }
 
 /*
 Footer
@@ -216,7 +280,7 @@ Footer
   .footer_item {
     color: #ffffff;
     text-decoration: none;
-    font-size: calc(5px + 1.7vmin);
+    font-size: calc(3px + 1.5vmin);
     padding-right: 20px; }
     .footer_item:hover {
       opacity: 0.4;
