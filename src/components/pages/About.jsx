@@ -1,5 +1,5 @@
 import '../css/App.scss';
-import Header from "../components/Header";
+import Header from "../organisms/Header";
 
 export default function About() {
     return (

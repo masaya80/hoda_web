@@ -1,9 +1,9 @@
 import React from 'react';
 import '../css/App.scss';
-import Header from "../components/Header";
-import ToContact from "../components/ToContact";
-import Footer from "../components/Footer";
-import Info from "../components/Info";
+import Header from "../organisms/Header";
+import ToContact from "../organisms/ToContact";
+import Footer from "../organisms/Footer";
+import Info from "../organisms/Info";
 import hochan from '../images/hochan.jpg'
 
 

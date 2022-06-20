@@ -328,7 +328,6 @@ Footer
     font-size: calc(3px + 1.5vmin);
     padding-right: 20px; }
     .footer_item:hover {
-      opacity: 0.4;
       text-decoration: underline; }
 
 .privilage {

@@ -7,7 +7,9 @@
 
 /* Change color on hover */
 .bm-item:hover {
-  color: white; }
+  color: white;
+  display: block
+}
 
 /* The rest copied directly from react-burger-menu docs */
 /* Position and sizing of burger button */

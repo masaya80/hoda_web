@@ -1,16 +1,15 @@
 import '../css/App.scss';
-import Header from "../components/Header";
+import Header from "../organisms/Header";
 
-export default function hochan() {
+export default function Contact() {
     return (
         <div className="App">
             <Header/>
             <main>
-                <h1>Hochan</h1>
+
             </main>
         </div>
     );
 }
-
 
 
