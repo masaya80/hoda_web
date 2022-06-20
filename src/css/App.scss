@@ -1,4 +1,5 @@
 @import "variable";
+
 /*
 common
 */
@@ -6,7 +7,7 @@ p, h1 {
   margin: 0;
 }
 
-body{
+body {
   font-family: "Helvetica Neue",
   Arial,
   "Hiragino Kaku Gothic ProN",
@@ -15,19 +16,56 @@ body{
   sans-serif;
 }
 
-
-.App {
+.btn {
+  background: #ffffff;
+  border: 1px solid #5e5e5e;
+  border-radius: 60px;
+  color: #fff;
+  display: block;
+  max-width: 20vw;
+  padding: 20px 40px;
   text-align: center;
+  margin-top: 60px;
+  text-decoration: none;
+  font-size: clamp(14px, calc(5px + 1vmin), 18px);
+  z-index: -1;
+
+  &.slide {
+    background: #fff;
+    color: #474747;
+    font-weight: bold;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+
+    &::after {
+      background: #8185A8;
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 100%;
+      transform: scale(0, 1);
+      transform-origin: left top;
+      transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
+      z-index: -1;
+    }
+
+    &:hover {
+      color: #fff;
+
+      &::after {
+        transform: scale(1, 1);
+      }
+    }
+  }
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (max-width: 767px) {
+  .btn {
+    padding: 10px 40px;
+    max-width: 40vw;
   }
 }
 
@@ -35,37 +73,37 @@ body{
   Header
 */
 header {
-  min-height: 10vh;
+  min-height: 92px;
+  width: 100vw;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   color: #000000;
   padding: 0 50px;
-  border-bottom: solid 1px #282c34;
   box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  opacity: 0.9;
+  z-index: 2;
 }
 
 .header_lab {
   font-size: calc(8px + 2vmin);
   font-weight: bold;
+  line-height: 92px;
 }
 
-/*header-menu*/
-.header_menu {
-  display: flex;
-  align-items: flex-start;
-}
 
-.header_item {
-  color: #000000;
-  text-decoration: none;
-  font-size: calc(8px + 1vmin);
-  font-weight: bold;
-  padding-right: 20px;
-}
-
-.header_item:hover {
-  opacity: 0.4;
+@media screen and (max-width: 767px){
+  header{
+    padding: 0 20px;
+    min-height: 8vh;
+  }
+  .header_lab {
+    font-size: calc(12px + 2vmin);
+    line-height: 8vh;
+  }
 }
 
 
@@ -77,16 +115,17 @@ main
 top
 */
 .top {
+  padding-top: 92px;
   background-color: #8185A8;
   width: 100vw;
-  min-height: 85vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
 }
 
 .top_content {
-  width: 93vw;
-  min-height: 80vh;
+  width: 90vw;
+  min-height: 75vh;
   margin: 0 auto;
   padding: 3%;
   background-color: #DD9DC0;
@@ -98,7 +137,7 @@ top
 
 .top_content h1 {
   vertical-align: middle;
-  font-size: calc(10px + 6vmin);
+  font-size: clamp(18px, calc(16px + 3vmin), 45px);
   border-bottom: solid 4px #ffffff;
   margin: 17vh 0 3vh;
   padding: 0 1vw 2vh;
@@ -110,12 +149,23 @@ top
   padding-left: 20px;
 }
 
+@media screen and (max-width: 767px) {
+  .top {
+    padding-top: 8vh;
+    min-height: 65vh;
+  }
+  .top_content {
+    min-height: 60vh;
+    margin: 0 auto;
+  }
+}
+
 /*
 about
 */
 .about {
   width: 100vw;
-  background-image: url("images/grid.svg");
+  background-image: url("../images/grid.svg");
   background-repeat: repeat;
   display: flex;
   flex-direction: column;
@@ -152,76 +202,81 @@ ho-chan
 
       img {
         height: 30vw;
-        padding-right: 5vw;
+        padding-right: 8vw;
       }
     }
+
     &:last-child {
       text-align: left;
+
       h2 {
         @include ttlFont;
         font-weight: 300;
         font-family: YuMincho;
       }
+
       p {
-        font-size: calc(8px + 2vmin);
+        font-size: clamp(14px, calc(8px + 2vmin), 45px);
+        font-weight: 500;
+        font-family: YuMincho;
       }
+
       ul {
         padding-left: 10px;
-
+        margin-top: 0;
         @include txtFont;
+        font-family: YuMincho;
       }
+
       li {
         list-style: none;
         padding-top: 5px;
+
       }
+
       a {
         text-decoration: none;
-        button{
-          width: 70vw;
+
+        button {
+          width: 85vw;
         }
       }
     }
   }
 }
-.btn {
-  background: #ffffff;
-  border: 1px solid #5e5e5e;
-  border-radius: 60px;
-  color: #fff;
-  display: block;
-  max-width: 20vw;
-  padding: 20px 40px;
-  text-align: center;
-  margin-top: 60px;
-  text-decoration: none;
-  &.slide {
-    background: #fff;
-    color: #474747;
-    font-weight: bold;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
-    &::after {
-      background: #8185A8;
-      position: absolute;
-      top: 0;
-      left: 0;
-      content: '';
-      width: 100%;
-      height: 100%;
-      transform: scale(0, 1);
-      transform-origin: left top;
-      transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
-      z-index: -1;
-    }
-    &:hover {
-      color: #fff;
-      &::after {
-        transform: scale(1, 1);
+
+@media screen and (max-width: 767px) {
+  .hochan {
+    &_column {
+      box-sizing: border-box;
+      padding: 2%;
+
+      &:first-child {
+        width: 42vw;
+        display: flex;
+        justify-content: center;
+        padding-top: 40px;
+
+        img {
+          height: 40vw;
+          padding: 0;
+        }
+      }
+
+      &:last-child {
+        text-align: left;
+        width: 58vw;
+
+        ul {
+          padding-left: 2px;
+          font-size: clamp(14px, calc(8px + 1.2vmin), 22px);
+        }
       }
     }
   }
+
 }
+
 
 /*
 Information
@@ -234,29 +289,33 @@ Information
   width: 100vw;
   background-color: #ffffff;
   padding: 2% 0 3%;
-  margin:50px 0;
-  h2{
+  margin: 50px 0;
+
+  h2 {
     font-size: clamp(8px, calc(8px + 2vmin), 30px);
   }
 }
-.news-list{
+
+.news-list {
   list-style: none outside;
   margin: 0;
   padding: 0;
 }
-.news-list .item a{
+
+.news-list .item a {
   display: flex;
-  flex-wrap: wrap;
   flex-wrap: nowrap;
   text-decoration: none;
   color: #171717;
   border-bottom: 1px solid #CCC;
   padding: 20px 20px;
 }
-.news-list .item:first-child a{
+
+.news-list .item:first-child a {
   border-top: 1px solid #CCC;
 }
-.news-list .item .date{
+
+.news-list .item .date {
   margin: 0;
   min-width: 120px;
   font-size: 16px;
@@ -264,23 +323,25 @@ Information
   padding: 0 20px 0 0;
   line-height: 100%;
 }
-.news-list .item .title{
+
+.news-list .item .title {
   margin: 0;
   width: 100%;
-  letter-spacing: 3px;
-  line-height: 100%;
+  letter-spacing: 1.5px;
+  line-height: 120%;
   text-align: left;
+  @include txtFont;
 }
 
 
-@media screen and (max-width: 767px){
-  .news-list .item a{
+@media screen and (max-width: 767px) {
+  .news-list .item a {
     flex-wrap: wrap;
   }
-  .news-list .item .date{
+  .news-list .item .date {
     min-width: 100px;
   }
-  .news-list .item .title{
+  .news-list .item .title {
     margin-top: 10px;
   }
 }
@@ -294,25 +355,61 @@ ToContact
   background-color: #FFA69E;
   padding: 2%;
   margin: 50px 0;
+
   &_column {
     width: 50vw;
     padding: 3%;
     background-color: #ffffff;
+
     img {
       width: 40vw;
     }
   }
+
   &_description {
     box-sizing: border-box;
     padding-top: 8%;
     padding-left: 8%;
     text-align: left;
+
     p {
       @include ttlFont;
-      &:last-child{
+
+      &:last-child {
         font-size: clamp(6px, calc(6px + 1vmin), 18px);
         font-weight: normal;
         margin-top: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .contact {
+    flex-direction: column-reverse;
+
+    &_column {
+      width: 95vw;
+      box-sizing: border-box;
+
+      img {
+        width: 85vw;
+        padding-top: 10px;
+      }
+    }
+
+    &_description {
+      display: flex;
+      flex-direction:column ;
+      box-sizing: border-box;
+      padding: 10px 20px;
+      p {
+        padding-left: 5px;
+      }
+
+      .btn{
+        margin: 15px 0 0 10px;
+        padding: 10px 8px;
       }
     }
   }
@@ -328,20 +425,24 @@ Footer
   background-color: #8185A8;
   text-align: left;
   color: #ffffff;
+
   &_lab {
     font-size: calc(5px + 3vmin);
     font-weight: bold;
   }
+
   &_menu {
     display: flex;
     align-items: flex-start;
     margin-top: 20px;
   }
+
   &_item {
     color: #ffffff;
     text-decoration: none;
     font-size: calc(3px + 1.5vmin);
     padding-right: 20px;
+
     &:hover {
       opacity: 0.4;
       text-decoration: underline;

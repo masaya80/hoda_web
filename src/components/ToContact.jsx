@@ -1,6 +1,5 @@
 import React from 'react';
-import '../App.scss';
-import { Link } from "react-router-dom";
+import '../css/App.scss';
 import member from "../images/member.jpg"
 import Button from "../atom/Button";
 

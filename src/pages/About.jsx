@@ -1,5 +1,4 @@
-import '../App.scss';
-import { Link } from "react-router-dom";
+import '../css/App.scss';
 import Header from "../components/Header";
 
 export default function About() {

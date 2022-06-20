@@ -1,0 +1,18 @@
+@mixin txtFont{
+  font-size: clamp(14px, calc(8px + 1.2vmin), 22px);
+}
+
+@mixin ttlFont{
+  font-size: clamp(10px, calc(8px + 2.5vmin), 45px);
+  font-weight: bold;
+}
+
+@mixin ttlMincho {
+  @include ttlFont;
+  font-weight: 600;
+  font-family: YuMincho;
+}
+
+@mixin tb {
+
+}
